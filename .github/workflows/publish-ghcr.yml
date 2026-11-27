@@ -56,7 +56,7 @@ jobs:
           "$RUNNER_TEMP/actionlint" -ignore 'SC2016'
 
       - name: Audit workflows with zizmor
-        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        uses: zizmorcore/zizmor-action@1b4550e929643b8b26a62303c6bd64814271a4f1 # v0.9.2
         with:
           advanced-security: false
           online-audits: false
@@ -166,7 +166,7 @@ jobs:
 
       - name: Install Syft for per-architecture SPDX SBOMs
         id: syft
-        uses: anchore/sbom-action/download-syft@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3
+        uses: anchore/sbom-action/download-syft@dfcb83b97731532d72be422cbc51ee64adb6fd56 # v0.24.4
 
       - name: Generate full SBOMs and digest manifest
         shell: bash
