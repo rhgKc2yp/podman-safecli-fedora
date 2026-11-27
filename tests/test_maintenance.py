@@ -70,6 +70,12 @@ class ToolUpdateTests(unittest.TestCase):
 
 
 class GhcrRetentionTests(unittest.TestCase):
+    def setUp(self):
+        # Freeze only the retention module's clock; keep datetime parsing real.
+        clock = patch.object(retention, "dt", wraps=dt)
+        self.addCleanup(clock.stop)
+        clock.start().datetime.now.return_value = self.NOW
+
     NOW = dt.datetime(2026, 11, 20, tzinfo=dt.timezone.utc)
 
     @classmethod
